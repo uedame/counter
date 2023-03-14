@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { CountButton } from './compornents/CountButton'
+import { ToggleButton } from './compornents/ToggleButton';
 
 function App() {
   // Declare a new state variable, which we'll call "count"
   const [count, setCount] = useState(0);
-const [showText,setShowText] =useState(true);
+  const [showText, setShowText] = useState(true);
 
   const onClickShow = () => {
     setShowText(!showText)
@@ -12,14 +14,10 @@ const [showText,setShowText] =useState(true);
 
   return (
     <>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click Counter
-      </button>
+      <CountButton count={count} setCount={setCount} />
       <br />
       <br />
-      <button onClick={onClickShow}>Text on/off</button>
-      { showText && <p>BB WORLD</p> }
+      <ToggleButton showText={showText} onClick={onClickShow} />
     </>
   );
 }
